@@ -1,49 +1,25 @@
-import { Application } from 'https://deno.land/x/oak/mod.ts'
-import { Status, Router } from 'https://deno.land/x/oak/mod.ts'
-import boardRouter from './router.board.ts'
-
-
-
-const router = new Router();
-
-router.get('/', (ctx, next) => {
-
-  ctx.response.status = Status.OK;
-  ctx.response.body = `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title></title>
-      <head>
-      <body>
-        <h1>Hello oak!</h1>
-      </body>
-    </html>
-  `;
-
-})
-
-router.get('/(.*)', async (ctx) => {
-
-  ctx.response.status = Status.NotFound;
-  ctx.response.body = {
-    success: false,
-    status: Status.NotFound,
-    message: 'Page not Found',
-  };
-
-})
+import { Application } from '@/deps.ts'
+import authRouter from './mvc.auth.ts'
+import boardRouter from './mvc.board.ts'
+import etcRouter from './mvc.etc.ts'
   
 
 
 const init = (app: Application) => {
+
+  app.use(authRouter.routes());
+  app.use(authRouter.allowedMethods());
+
   app.use(boardRouter.routes());
   app.use(boardRouter.allowedMethods());
 
-  app.use(router.routes());
-  app.use(router.allowedMethods());
+  app.use(etcRouter.routes());
+  app.use(etcRouter.allowedMethods());
+
+};
+
+
+
+export default {
+  init,
 }
-
-
-
-export default { init };
