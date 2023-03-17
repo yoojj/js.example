@@ -1,5 +1,4 @@
-import { Status } from 'https://deno.land/x/oak/mod.ts'
-import { appRouter } from '@/deps.ts'
+import { appRouter, Status } from '@/deps.ts'
 
 
 
