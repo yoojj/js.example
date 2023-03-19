@@ -1,5 +1,6 @@
 # express
 
+
 ```bash
 npm init
 
@@ -11,5 +12,10 @@ node-schedule multer uuid
 
 npm install --save-dev nodemon
 
-express server
+npm install --save-dev typescript ts-node @types/node @types/express
+npx tsc --init
+
+
+# 실행  
+npm run start 
 ```
