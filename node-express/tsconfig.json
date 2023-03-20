@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "moduleResolution": "node",
+    "allowJs": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+
+    "sourceMap": true,
+    "outDir": "dist",
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"],
+    }
+  },
+  
+  "ts-node": {
+    "esm": true
+  },
+
+  "include": ["src/**/*.ts", "src/**/*.json", ".env"],
+  "exclude": ["node_modules", "@/logs", "src/tests"]
+
+}
