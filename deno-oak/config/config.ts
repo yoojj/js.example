@@ -11,7 +11,12 @@ const config = {
     port: Number(Deno.env.get('PORT') as unknown as number),
     ip: Deno.env.get('IP'),
     host: Deno.env.get('HOST'),
-
+    
+    log: {
+        level: Deno.env.get('LOG_LEVEL'),
+        file: Deno.env.get('LOG_FILE'),
+    },
+      
     db: {
         hostname: Deno.env.get('DB_HOSTNAME'),
         username: Deno.env.get('DB_USER_NAME'), 

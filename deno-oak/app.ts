@@ -1,11 +1,9 @@
-import { config as appEnv } from 'https://deno.land/x/dotenv/mod.ts'
-import { Application, FlashServer, hasFlash, isHttpError } from 'https://deno.land/x/oak/mod.ts'
-import { oakCors } from 'https://deno.land/x/cors/mod.ts'
-import AppRouter from './router/index.ts'
+import { Application, FlashServer, hasFlash, isHttpError, oakCors } from '@/deps.ts'
+import config from '@/config/config.ts'
+import { log } from '@/middleware/logger.ts'
+import router from '@/router/index.ts'
 
 
-
-appEnv({ export: true });
 
 const appOptions = hasFlash() ? { serverConstructor: FlashServer } : undefined;
 const app = new Application(appOptions);
@@ -21,11 +19,11 @@ app.use(async (ctx, next) => {
    try {
       await next();
       const rt = ctx.response.headers.get('X-Response-Time');
-      console.log(`${ctx.request.method} ${ctx.request.url} - ${rt}`);
+      log.info(`${ctx.request.method} ${ctx.request.url} - ${rt}`);
 
    } catch (err) {
       if(isHttpError(err)) {
-         console.log(err)
+         log.error(err)
       }
    }
 });
@@ -39,16 +37,16 @@ app.use(async (ctx, next) => {
 
 
 
-AppRouter.init(app);
+router.init(app);
 
 
 
 app.addEventListener('error', (evt) => {
-   console.log(evt.error);
+   log.info(evt.error);
 });
 
 app.addEventListener('listen', ({ secure, hostname, port }) => {
-   console.log('--- server start ---')
+   log.info('--- server start ---')
 });
 
-await app.listen({ port: Deno.env.get('PORT') });
+await app.listen({ port: config.port });
