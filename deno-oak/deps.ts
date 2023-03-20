@@ -1,6 +1,8 @@
 export { config } from 'https://deno.land/x/dotenv/mod.ts'
 export { getLogger, handlers, setup } from 'https://deno.land/std/log/mod.ts'
 
+export { format, parse } from 'https://deno.land/std/datetime/mod.ts'
+
 import { Router } from 'https://deno.land/x/oak/mod.ts'
 export const appRouter = new Router();
 

@@ -1,20 +1,24 @@
-import { getLogger, handlers, setup } from '@/deps.ts'
+import { format, getLogger, handlers, setup } from '@/deps.ts'
 import config from '@/config/config.ts'
 
 
 
-const LOG_LEVEL: string = config.log.level;
-const LOG_FILE: string = config.log.file;
+const logOption = {
+    logLevel: config.log.level,
+    fileLogLevel: config.log.file,
+    logDate: format(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS'),
+    fileLogDate: format(new Date(), 'yyyy-MM-dd'),
+};
 
 await setup({
 
     handlers: {
-        console: new handlers.ConsoleHandler(LOG_LEVEL, {
-            formatter: '{datetime} {levelName} {msg}', 
+        console: new handlers.ConsoleHandler(logOption.logLevel, {
+            formatter: `${logOption.logDate} [{levelName}] {msg}`, 
         }),
 
-        file: new handlers.RotatingFileHandler(LOG_FILE, {
-            filename: `@/@log/${new Date}.log`,
+        file: new handlers.RotatingFileHandler(logOption.fileLogLevel, {
+            filename: `./@logs/${logOption.fileLogDate}.log`,
             maxBytes: 15,
             maxBackupCount: 5,
             formatter: f => JSON.stringify({
@@ -28,11 +32,11 @@ await setup({
 
     loggers: {
         default: {
-            level: LOG_LEVEL,
+            level: logOption.logLevel,
             handlers: ['console'],
         },
         file: {
-            level: LOG_FILE,
+            level: logOption.fileLogLevel,
             handlers: ['file'],
         },
     },
