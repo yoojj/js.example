@@ -1,5 +1,6 @@
-import { Client, configLogger } from '@/deps.ts'
+import { Client, configLogger, Database, MySQLConnector } from '@/deps.ts'
 import config from '@/config/config.ts'
+import { log } from '@/middleware/logger.ts'
 
 
 
@@ -17,8 +18,8 @@ try {
         db: config.db.dbname,
     });
 
-} catch(e) {
-    console.log(e);
+} catch(error) {
+    log.error(error);
     Deno.exit(1);
 }
 

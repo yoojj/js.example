@@ -13,7 +13,7 @@ export { oakCors } from 'https://deno.land/x/cors/mod.ts'
 export * as oakMiddleware from 'https://deno.land/x/oak_middleware/mod.ts'
 
 export { Client, configLogger } from 'https://deno.land/x/mysql/mod.ts'
-//export { Database, MySQLConnector, Model, DataTypes } from 'https://deno.land/x/denodb/mod.ts'
+export { DataTypes, Database, Model, MySQLConnector } from 'https://deno.land/x/denodb/mod.ts'
 //export {} from 'typeorm https://deno.land/x/typeorm/cli.ts'
 
 export * as onyx from 'https://deno.land/x/onyx/mod.ts'
