@@ -14,10 +14,11 @@ export * as oakMiddleware from 'https://deno.land/x/oak_middleware/mod.ts'
 
 export { Client, configLogger } from 'https://deno.land/x/mysql/mod.ts'
 export { DataTypes, Database, Model, MySQLConnector } from 'https://deno.land/x/denodb/mod.ts'
-//export {} from 'typeorm https://deno.land/x/typeorm/cli.ts'
 
 export * as onyx from 'https://deno.land/x/onyx/mod.ts'
 export { compare, genSalt, hash } from 'https://deno.land/x/bcrypt/mod.ts'
-export { create, decode, verify } from 'https://deno.land/x/djwt/mod.ts'
+
+export type { Header as JWTHeader } from 'https://deno.land/x/djwt/mod.ts'
+export { create as createToken, verify as verifyToken, decode, getNumericDate } from 'https://deno.land/x/djwt/mod.ts'
 
 export * as yup from 'https://cdn.skypack.dev/yup'
