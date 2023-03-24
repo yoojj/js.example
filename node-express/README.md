@@ -12,10 +12,15 @@ node-schedule multer uuid
 
 npm install --save-dev nodemon
 
-npm install --save-dev typescript ts-node @types/node @types/express
+npm install --save-dev typescript ts-node tsconfig-paths @types/node @types/express
 npx tsc --init
+
+npm install --save-dev jest supertest ts-jest @types/jest
 
 
 # 실행  
 npm run start 
+
+# 테스트
+npm run test 
 ```

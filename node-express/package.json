@@ -4,10 +4,9 @@
   "description": "",
   "main": "src/app.ts",
   "scripts": {
-    "build": "npx tsc -p .",
-    "start": "nodemon --exec ts-node src/app.ts",
-    "start.dev": "nodemon --exec ts-node src/app.ts",  
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc -p tsconfig.json",
+    "start": "nodemon --exec ts-node -r tsconfig-paths/register src/app.ts",
+    "test": "jest  --setupFiles dotenv/config --detectOpenHandles --passWithNoTests  --forceExit"
   },
   "type": "module",
   "license": "ISC",
@@ -39,9 +38,14 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.0",
     "@types/node": "^18.15.3",
+    "jest": "^29.5.0",
     "nodemon": "^2.0.21",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "^5.0.2"
   }
 }
