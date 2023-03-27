@@ -1,6 +1,6 @@
 # express
 
-- node 15.14.0 
+- node 
 - express 
 - prisma
 
@@ -9,18 +9,25 @@
 npm init
 
 npm install body-parser cookie-parser morgan winston dotenv \
-express express-session express-mysql-session express-validator \
-cors helmet multer bcrypt mysql2 prisma bcryptjs nodemailer  \
+express express-ntlm express-session express-mysql-session express-validator \
+cors helmet multer bcrypt mysql bcryptjs http-status-codes \
 passport passport-local passport-http passport-jwt jsonwebtoken \
-node-schedule multer uuid core-js http-status-codes
+node-fetch node-schedule nodemailer multer uuid core-js @swc/core
+
+npm install prisma
+
+npm install inversify reflect-metadata  
 
 npm install --save-dev nodemon
 
 npm install --save-dev typescript ts-node tsconfig-paths tslib @types/core-js \
-@types/node @types/express
+@types/node @types/express @types/express-serve-static-core @types/express-ntlm \
+@types/node-schedule
+
 npx tsc --init
 
-npm install --save-dev jest supertest ts-jest @types/jest @types/supertest
+npm install --save-dev jest supertest ts-jest @types/jest @types/supertest \
+@types/express 
 
 
 # 실행  
