@@ -1,0 +1,1 @@
+export { deleteNonMember } from './member.batch.js'

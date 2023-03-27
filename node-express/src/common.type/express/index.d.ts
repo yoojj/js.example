@@ -1,6 +1,5 @@
 import express from 'express'
-import { User } from 'src/common.interface/User'
-import { Result } from 'src/common.interface/Result'
+import { User, Result } from '@/common.interface/index.js'
 
 
 

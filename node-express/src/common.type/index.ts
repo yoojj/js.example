@@ -1,0 +1,1 @@
+export { StringMap, NumberMap } from './object.type.js'

@@ -1,5 +1,5 @@
 import  winston  from 'winston'
-import { StringMap } from '../common.type/object.type.js'
+import { StringMap } from '../common.type/index.js'
 
 
 
