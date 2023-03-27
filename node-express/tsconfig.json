@@ -1,14 +1,27 @@
 {
+  "ts-node": {
+    "esm": true
+  },
+
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "types": [
-      "core-js",
-      "@types/jest"
+      "node",
+      "express",
+      "reflect-metadata",
+      "jest"
     ],
-    "typeRoots": ["src/mvc/type"],
-    "lib": [],
+    "typeRoots": [
+      "node_modules/@types",
+      "src/common.type"
+    ],
+    "lib": [
+      "dom",
+      "es6",
+      "webworker"
+    ],
 
     "allowJs": true,
     "checkJs": true, 
@@ -17,8 +30,11 @@
     "esModuleInterop": true,  
     "allowSyntheticDefaultImports": true,
 
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "noUnusedParameters": false,
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
 
     "declaration": true,   
     "declarationMap": true,
@@ -30,10 +46,6 @@
     "paths": {
       "@/*": ["src/*"]
     }
-  },
-  
-  "ts-node": {
-    "esm": true
   },
 
   "include": ["src/**/*.ts", "src/**/*.json", ".env", "jest.config.js"],

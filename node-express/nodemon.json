@@ -3,7 +3,9 @@
         "src",
         ".env"
     ],
-    "ext": "js,ts,json",
+    
+    "ext": ".js, .ts, .json",
+
     "ignore": [
         "@logs/*",
         "src/test/*.{spec,test}.ts"

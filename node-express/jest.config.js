@@ -6,10 +6,12 @@ export default async () => {
                 tsconfig: 'tsconfig.json',
             },
         },
+
         moduleFileExtensions: [
             'ts',
             'js',
         ],
+
         transform: {
             '^.+\\.(ts|js)$': 'ts-jest',
         },
@@ -17,6 +19,11 @@ export default async () => {
         testMatch: [
             '**/test/**/*.test.(ts|js)',
         ],
+
         testEnvironment: 'node',
+
+        moduleNameMapper: {
+            '@/(.*)': '<rootDir>/src/$1'
+        },
     };
 };
